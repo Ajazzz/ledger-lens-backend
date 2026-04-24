@@ -1,0 +1,8 @@
+# Ignore everything except the code needed for the Python Brain
+artifacts/
+node_modules/
+ledger-lens-ui/
+*.js
+*.mjs
+*.tsx
+*.ts
