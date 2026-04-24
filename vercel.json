@@ -1,19 +1,5 @@
 {
-  "version": 2,
-  "functions": {
-    "main.py": {
-      "runtime": "@vercel/python"
-    }
-  },
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "main.py"
-    }
-  ],
-  "ignore": [
-    "index.mjs",
-    "artifacts/**",
-    "node_modules/**"
+  "rewrites": [
+    { "source": "/(.*)", "destination": "main.py" }
   ]
 }
