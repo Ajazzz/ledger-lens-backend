@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 from llama_index.core import VectorStoreIndex, Settings
 from llama_index.vector_stores.pinecone import PineconeVectorStore
-from llama_index.embeddings.huggingface import HuggingFaceEmbedding
+from llama_index.embeddings.huggingface_api import HuggingFaceInferenceAPIEmbedding
 from llama_index.llms.groq import Groq
 from pinecone import Pinecone
 from llama_index.embeddings.huggingface_api import HuggingFaceInferenceAPI
@@ -19,7 +19,10 @@ class LedgerLensQuery:
         Settings.llm = Groq(model="llama-3.3-70b-versatile", api_key=self.groq_key)
         
         # Use local embeddings consistent with indexing
-        Settings.embed_model = HuggingFaceInferenceAPI(model_name="BAAI/bge-small-en-v1.5",token=os.getenv("HF_TOKEN"))
+        Settings.embed_model = HuggingFaceInferenceAPIEmbedding(
+    model_name="BAAI/bge-small-en-v1.5",
+    token=os.getenv("HF_TOKEN")
+)
         
         # 2. Connect to Pinecone
         self.pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
