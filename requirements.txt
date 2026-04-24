@@ -1,9 +1,8 @@
 fastapi
 uvicorn
 llama-index-core
-llama-index-readers-docling
 llama-index-llms-groq
-llama-index-embeddings-huggingface
+llama-index-embeddings-huggingface-api
 llama-index-vector-stores-pinecone
 pinecone
 upstash-redis
